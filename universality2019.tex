@@ -1,0 +1,224 @@
+%-------------------------------------------------------------------------------
+% This file provides a skeleton ATLAS document
+%-------------------------------------------------------------------------------
+\documentclass[UKenglish,texlive=2011]{latex/atlasdoc}
+% The language of the document must be set: usually UKenglish or USenglish
+% british and american also work!
+% Selected options:
+%  texlive=YYYY          Specify TeX Live version (2013 is default)
+%  atlasstyle=true|false Use ATLAS style for document (default)
+%  coverpage             Create ATLAS draft cover page for collaboration circulation
+%                        See atlas-draft-cover.tex for a list of variables that should be defined.
+%  cernpreprint          Create front page for a CERN preprint
+%                        See atlas-preprint-cover.tex for a list of variables that should be defined.
+%  PAPER                 The document is an ATLAS paper (draft)
+%  CONF                  The document is a CONF note (only useful together with coverpage)
+%  PUB                   The document is a PUB note (only useful together with coverpage)
+%  txfonts=true|false    Use txfonts rather than the default newtx - needed for arXiv submission
+%  paper=a4|letter       Set paper size to A4 (default) or letter
+%  maketitle=true|false  Run or do not run \maketitle from the class
+
+%-------------------------------------------------------------------------------
+% Extra packages:
+\usepackage{latex/atlaspackage}
+\usepackage{listings}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\definecolor{Green}{rgb}{0, 0.5, 0}
+\lstset{
+	backgroundcolor=\color{lbcolor},
+    tabsize=4,    
+%   rulecolor=,
+    language=[GNU]C++,
+    captionpos=b,
+    basicstyle=\scriptsize,
+    upquote=true,
+    aboveskip={0.25\baselineskip},%{1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=false,
+    breaklines=true,
+	prebreak = \,\,\,\,,%\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,%single,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=1.5pt,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    identifierstyle=\ttfamily,%\color{magenta},
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color{Green},
+    stringstyle=\color{red},
+%    numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+    numberstyle=\color[RGB]{139, 69, 19},
+%   \lstdefinestyle{C++}{language=C++,style=numbers}’.
+}
+
+% Selected options:
+%  biblatex=true|false   Use biblatex (default) or bibtex for the bibliography
+%  backend=biber         Use the biber backend rather than bibtex
+%  minimal               Minimal set of packages
+%  default               Standard set of packages
+%  full                  Full set of packages
+% Style file with biblatex options for ATLAS documents
+\usepackage{latex/atlasbiblatex}
+
+% Package for creating list of authors and contributors to the analysis
+\usepackage{latex/atlascontribute}
+
+% Useful macros
+\usepackage{latex/atlasphysics}
+% See doc/atlas-physics.pdf for a list of the defined symbols
+% Default options are 
+%   true:  journal, misc, particle, unit, xref
+%   false: bsm, hion, math, process, other, texmf
+% See the package for details on the options
+
+% Files with references for use with biblatex
+% Note that biber gives an error if it finds empty bib files
+\addbibresource{universality2019.bib}
+% \addbibresource{bibtex/bib/ATLAS.bib}
+% \addbibresource{bibtex/bib/PubNotes.bib}
+% \addbibresource{bibtex/bib/ConfNotes.bib}
+
+% Paths for figures - do not forget the / at the end of the directory name
+\graphicspath{{logos/}{figures/}}
+
+% Add you own definitions here (file Isolation2017-defs.sty)
+\usepackage{universality2019-defs}
+\usepackage{rotating}
+
+%-------------------------------------------------------------------------------
+% Generic document information
+%-------------------------------------------------------------------------------
+
+% Author and title for the PDF file
+\hypersetup{pdftitle={ATLAS draft},pdfauthor={The ATLAS Collaboration}}
+% Title, abstract and document 
+\input{universality2019-metadata}
+
+\input{definitions}
+%-------------------------------------------------------------------------------
+% Content
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% \maketitle
+\tableofcontents
+\FloatBarrier
+
+% List of contributors - print here or after the Bibliography
+%\AtlasPrintContribute{0.3}
+
+%-------------------------------------------------------------------------------
+\input{chapters/universality-01-intro}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\input{chapters/universality-02-atlas}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\input{chapters/universality-02-samples}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\input{chapters/universality-03-objects}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\input{chapters/universality-04-eventSelection}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\input{chapters/universality-05-analysis}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\input{chapters/universality-06-systematics}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\input{chapters/universality-07-results}
+\FloatBarrier
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\input{chapters/conclusion}
+ \FloatBarrier
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section*{Acknowledgements}
+%-------------------------------------------------------------------------------
+% 
+% %\input{acknowledgements/Acknowledgements}
+% 
+% 
+% The \texttt{atlaslatex} package contains the acknowledgements that were valid 
+% at the time of the release you are using. These can be found in the
+% \texttt{acknowledgements} subdirectory.
+% When your ATLAS papers or CONF note is ready to be published,
+% download the latest set of acknowledgements from:\\
+% \url{https://twiki.cern.ch/twiki/bin/view/AtlasProtected/PubComAcknowledgements}
+% 
+% The supporting notes for the analysis should also contain a list of contributors.
+% This information should usually be included in \texttt{mydocument-metadata.tex}.
+% The list should be printed either here or before the table of contents.
+
+
+%-------------------------------------------------------------------------------
+\clearpage
+\appendix
+\part*{Appendix}
+\addcontentsline{toc}{part}{Appendix}
+ \FloatBarrier
+%-------------------------------------------------------------------------------
+
+% In a paper, an appendix is used for technical details that would otherwise disturb the flow of the paper.
+% Such an appendix should be printed before the Bibliography.
+
+
+%-------------------------------------------------------------------------------
+% If you use biblatex and either biber or bibtex to process the bibliography 
+% just say \printbibliography here
+\printbibliography
+
+% If you want to use the traditional BibTeX you need to use the syntax below.
+% \bibliographystyle{bibtex/bst/atlasBibStyleWoTitle}
+% \bibliography{Isolation2017,bibtex/bib/atlas-paper}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% Print the list of contributors to the analysis
+% The argument gives the fraction of the text width used for the names
+%-------------------------------------------------------------------------------
+\clearpage
+\PrintAtlasContribute{0.30}
+
+%-------------------------------------------------------------------------------
+\clearpage
+\appendix
+
+\part*{Auxiliary material}
+\addcontentsline{toc}{part}{Auxiliary material}
+%-------------------------------------------------------------------------------
+
+\input{chapters/app_todolist.tex}
+\FloatBarrier
+
+% In an ATLAS paper, auxiliary plots and tables that are supposed to be made public 
+% should be collected in an appendix that has the title \enquote{Auxiliary material}.
+% This appendix should be printed after the Bibliography.
+% At the end of the paper approval procedure, this information can be split into a separate document
+% -- see \texttt{atlas-auxmat.tex}.
+% 
+% In an ATLAS note, use the appendices to include all the technical details of your work
+% that are relevant for the ATLAS Collaboration only (e.g.\ dataset details, software release used).
+% This information should be printed after the Bibliography.
+
+\end{document}

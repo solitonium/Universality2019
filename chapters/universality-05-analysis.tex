@@ -1,0 +1,27 @@
+\section{Analysis}
+\label{sec:analysis}
+
+This section describes the analysis workflow.
+
+\subsection{QCD background}
+
+How to estimate QCD background using data-driven method. 
+
+\subsection{Fit}
+
+How to build fit model and get results.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+Region & Fit parameter & Fit construction \\
+\hline
+Signal region (SR) & $\mu_{SIG}$, $\mu_{W}$ & $[\mu_{SIG} W_{t} + W_{e}] \cdot \mu_{W} + MC \cdot \mu_{Z} + QCD \cdot \mu_{QCD}$ \\
+Fake region (QCD) & $\mu_{QCD}$ & $[ W_{t} + W_{e}] \cdot \mu_{W} + MC \cdot \mu_{Z} + QCD \cdot \mu_{QCD}$ \\
+Z region (ZR) & $\mu_{Z}$ & $MC \cdot \mu_{Z}$ \\
+\hline
+\end{tabular}
+\caption{$W_t$ and $W_e$ corresponds to $W \rightarrow \tau\nu$ and $W \rightarrow e\nu$. MC a sets of the rest Monte-Carlo samples. QCD corresponds to the fake data sample obtained using data-driven method.}
+\label{tab:fitReqions}
+\end{table}

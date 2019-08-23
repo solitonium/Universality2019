@@ -1,0 +1,11 @@
+Setup:
+
+try Latex on AFS if you have any problem to compile:
+export PATH=/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux:$PATH
+
+-------------------
+wget https://twiki.cern.ch/twiki/pub/AtlasProtected/PubComLaTeX/atlaslatex-01-06-01.tar.gz
+tar zxvf atlaslatex-01-06-01.tar.gz
+cp -r atlaslatex-01-06-01/latex atlaslatex-01-06-01/logos .
+rm -fr atlaslatex-01-06-01.tar.gz atlaslatex-01-06-01
+-------------------
